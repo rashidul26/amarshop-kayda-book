@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>সহজ নূরানী কায়দা - মাদরাসা পাবলিকেশন</title>
+    <!-- CSS লিংক -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ফন্ট লোড -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Hind+Siliguri:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- ১. রিসেট এবং বেস স্টাইলস --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #1b4d3e;   /* ডিপ গ্রিন (মূল থিম) */
+    --primary-hover: #13382d;   /* ডার্ক গ্রিন */
+    --accent-color: #ffb703;    /* আকর্ষণীয় গোল্ডেন/হলুদ (হাইলাইটের জন্য) */
+    --accent-hover: #e8a500;
+    --bg-light-green: #f2f7f5;  /* ব্যানারের সাথে মিল রেখে লাইট গ্রিন ব্যাকগ্রাউন্ড (সাদার পরিবর্তে) */
+    --card-bg: #ffffff;         /* কার্ড ও ফর্মের ভেতরের ব্যাকগ্রাউন্ড */
+    --text-color: #2b2d42;      /* টেক্সট কালার */
+    --white: #ffffff;
+    --font-main: 'Hind Siliguri', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    color: var(--text-color);
+    background-color: var(--bg-light-green); /* পুরো ওয়েবসাইটের ব্যাকগ্রাউন্ড এখন লাইট গ্রিন */
+    line-height: 1.6;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- ২. বাটন ও হাইলাইট স্টাইলস --- */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+}
+
+/* অর্ডার/বাই নাউ বাটন - সুপার হাইলাইটেড */
+.btn-highlight {
+    background-color: var(--accent-color);
+    color: #000000;
+    box-shadow: 0 4px 15px rgba(255, 183, 3, 0.4);
+    animation: pulseAnimation 2s infinite;
+}
+
+.btn-highlight:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 183, 3, 0.6);
+}
+
+.btn-call {
+    background-color: #007bff;
+    color: var(--white);
+}
+
+.btn-call:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* বাটন হাইলাইট অ্যানিমেশন */
+@keyframes pulseAnimation {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+    100% { transform: scale(1); }
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.section-title span {
+    color: #2ec4b6;
+}
+
+/* --- ৩. হেডার সেকশন --- */
+.header {
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    padding: 15px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.logo span {
+    color: #2ec4b6;
+}
+
+.head-call-btn {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+/* --- ৪. আকর্ষণীয় গ্রিন ব্যানার / হিরো সেকশন --- */
+.hero {
+    background-color: var(--primary-color);
+    color: var(--white);
+    padding: 80px 0;
+}
+
+.hero-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.badge {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--accent-color);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.hero-content h1 {
+    font-size: 3rem;
+    color: var(--white);
+    margin: 20px 0;
+    line-height: 1.3;
+}
+
+.hero-content .highlight {
+    color: var(--accent-color);
+    text-shadow: 0 2px 8px rgba(255, 183, 3, 0.2);
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #e0f0ea;
+}
+
+.hero-btns {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+/* বইয়ের মকআপ */
+.book-mockup {
+    width: 280px;
+    height: 380px;
+    background-color: #13382d;
+    border-radius: 5px 15px 15px 5px;
+    box-shadow: 15px 15px 30px rgba(0,0,0,0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-left: 10px solid #0b221b;
+}
+
+.book-cover {
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    width: 85%;
+    height: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--white);
+    text-align: center;
+    padding: 20px;
+}
+
+.book-cover h2 {
+    font-size: 2rem;
+    color: var(--accent-color);
+    margin-bottom: 10px;
+}
+
+/* --- ৫. বৈশিষ্ট্য সেকশন --- */
+.features {
+    padding: 80px 0;
+    background-color: var(--bg-light-green); /* লাইট গ্রিন ব্যাকগ্রাউন্ড */
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background: var(--card-bg); /* কার্ডের ভেতরটা সাদা রাখা হয়েছে ফুটে ওঠার জন্য */
+    padding: 30px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(27, 77, 62, 0.05); /* হালকা সবুজ শেডের শ্যাডো */
+    border-top: 4px solid var(--primary-color);
+    transition: transform 0.3s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+/* --- ৬. অর্ডার ফর্ম সেকশন --- */
+.order-section {
+    padding: 80px 0;
+    background-color: var(--bg-light-green); /* লাইট গ্রিন ব্যাকগ্রাউন্ড */
+}
+
+.order-wrapper {
+    max-width: 550px;
+    margin: 0 auto;
+    background: var(--card-bg); /* ফর্ম এরিয়াটি কার্ড হিসেবে চমৎকার দেখাবে */
+    padding: 40px 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(27, 77, 62, 0.08);
+    text-align: center;
+    border: 1px solid rgba(27, 77, 62, 0.1);
+}
+
+.order-wrapper h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.order-wrapper p {
+    margin-bottom: 30px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+}
+
+.order-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    text-align: left;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.order-form input,
+.order-form textarea {
+    padding: 14px;
+    border-radius: 8px;
+    border: 1px solid #c0d1ca; /* হালকা গ্রিন টোনের বর্ডার */
+    font-family: var(--font-main);
+    font-size: 1rem;
+    width: 100%;
+    background-color: #fafdfc;
+}
+
+.order-form input:focus,
+.order-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(27, 77, 62, 0.15);
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 15px;
+    font-size: 1.1rem;
+}
+
+
+
+
+/* --- ৭. ফুটার --- */
+.footer {
+    background-color: #13382d;
+    color: rgba(255, 255, 255, 0.7);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* --- ৮. ফিক্সড পজিশন চ্যাট বাটন (Fixed WhatsApp Chat) --- */
+.fixed-whatsapp-chat {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background-color: #25d366;
+    color: var(--white);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    border-radius: 50px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.fixed-whatsapp-chat:hover {
+    background-color: #1ebd59;
+    transform: scale(1.05);
+}
+
+.whatsapp-icon {
+    width: 22px;
+    height: 22px;
+    fill: var(--white);
+}
+
+/* --- ৯. মোবাইল ও ট্যাবলেট রেসপনসিভ (সংশোধিত ও ১০০% পারফেক্ট) --- */
+
+/* ট্যাবলেট এবং ছোট ল্যাপটপের জন্য (সর্বোচ্চ ৯৯২ পিক্সেল) */
+@media (max-width: 992px) {
+    .hero-wrapper {
+        flex-direction: column-reverse; /* ইমেজ ওপরে এবং লেখা নিচে যাবে */
+        text-align: center;
+        gap: 40px;
+    }
+    
+    .hero-content h1 {
+        font-size: 2.4rem;
+        line-height: 1.4;
+    }
+    
+    .hero-btns {
+        justify-content: center;
+    }
+    
+    .features-grid {
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* কার্ডগুলো স্ক্রিন অনুযায়ী সুন্দর এডজাস্ট হবে */
+        gap: 20px;
+    }
+}
+
+/* বড় মোবাইল এবং ছোট ট্যাবলেটের জন্য (সর্বোচ্চ ৭৬৮ পিক্সেল) */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 1.8rem;
+        margin-bottom: 2rem;
+    }
+    
+    .book-mockup {
+        width: 240px; /* মোবাইলে বইয়ের সাইজ কিছুটা ছোট করা হলো যাতে স্ক্রিন থেকে বের না হয় */
+        height: 330px;
+    }
+    
+    .book-cover h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* সাধারণ মোবাইল স্ক্রিনের জন্য (সর্বোচ্চ ৫৭৬ পিক্সেল) */
+@media (max-width: 576px) {
+    .container {
+        width: 92%; /* মোবাইলের দুই পাশে চমৎকার স্পেস রাখার জন্য */
+    }
+
+    .navbar {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .hero {
+        padding: 50px 0; /* ওপরে-নিচে অতিরিক্ত ফাঁকা জায়গা কমানো হলো */
+    }
+
+    .hero-content h1 {
+        font-size: 1.9rem; /* মোবাইলের স্ক্রিন অনুযায়ী ফন্ট সাইজ ফিক্সড */
+        margin: 15px 0;
+    }
+    
+    .hero-content p {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+    
+    .hero-btns {
+        flex-direction: column; /* বাটনগুলো নিচে নিচে আসবে */
+        gap: 12px;
+        width: 100%;
+    }
+    
+    .hero-btns .btn {
+        width: 100%; /* প্রতিটি বাটন ডানে-বামে সমান বড় হবে */
+        padding: 14px 20px;
+    }
+    
+    .features {
+        padding: 50px 0;
+    }
+    
+    .feature-card {
+        padding: 20px; /* কার্ডের ভেতরের প্যাডিং মোবাইলের জন্য কমানো হলো */
+    }
+
+    .order-section {
+        padding: 50px 0;
+    }
+    
+    .order-wrapper {
+        padding: 30px 15px; /* ফর্মের চারপাশের বাড়তি জায়গা কমানো হলো */
+        border-radius: 10px;
+    }
+    
+    .order-wrapper h2 {
+        font-size: 1.6rem;
+    }
+
+    .order-form input,
+    .order-form textarea {
+        padding: 12px; /* ইনপুট বক্সগুলো মোবাইলে যেন অতিরিক্ত বড় না লাগে */
+        font-size: 0.95rem;
+    }
+
+    /* ফিক্সড হোয়াটসঅ্যাপ বাটন মোবাইল ফ্রেন্ডলি করা */
+    .fixed-whatsapp-chat {
+        bottom: 15px;
+        right: 15px;
+        padding: 12px;
+        border-radius: 50%; /* মোবাইলে গোল আইকন হয়ে যাবে */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+    
+    .fixed-whatsapp-chat span {
+        display: none; /* "চ্যাট করুন" লেখাটি মোবাইলে লুকিয়ে শুধু লোগো রাখা হলো */
+    }
+
+    .whatsapp-icon {
+        width: 24px;
+        height: 24px;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- হেডার সেকশন -->
+    <header class="header">
+        <div class="container navbar">
+            <div class="logo">মাদরাসা<span>বুকস</span></div>
+            <!-- ডিরেক্ট কল বাটন (হেডারে হাইলাইটেড) -->
+            <div>
+                <a href="#order-section" class="btn btn-highlight">এখনই অর্ডার করুন</a>
+            <a href="tel:+8801640875938" class="btn btn-call head-call-btn">📞 কল করুন</a>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- হিরো / ব্যানার সেকশন (Attractive Green BG) -->
+    <section class="hero">
+        <div class="container hero-wrapper">
+            <div class="hero-content">
+                <span class="badge">সেরা নূরানী কায়দা বই</span>
+                <h1 class="hero-title">সহজ ও শুদ্ধ উপায়ে <br><span class="highlight">কুরআন শিক্ষার</span> সেরা মাধ্যম</h1>
+                <p class="hero-desc">আমাদের নতুন ও পরিমার্জিত মাদরাসা কায়দা বইটি শিশুদের আকর্ষণীয় ডিজাইন, সহজ নিয়ম এবং সঠিক মাখরাজ শেখার নিখুঁত নির্দেশিকা দিয়ে তৈরি করা হয়েছে।</p>
+                <div class="hero-btns">
+                    <!-- অ্যাকশন বাটন যা সরাসরি ফর্মে নিয়ে যাবে -->
+                    <a href="#order-section" class="btn btn-highlight">এখনই অর্ডার করুন</a>
+                    <a href="tel:+888801640875938" class="btn btn-call">📞 সরাসরি ফোনে অর্ডার</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="book-mockup">
+                    <div class="book-cover">
+                        <h2>নূরানী কায়দা</h2>
+                        <p>মাদরাসা শিক্ষার্থীদের জন্য</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- বৈশিষ্ট্য সেকশন -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2 class="section-title">বইটির বিশেষ <span>বৈশিষ্ট্যসমূহ</span></h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon">✨</div>
+                    <h3>সহজ presentations</h3>
+                    <p>শিশুদের উপযোগী করে প্রতিটি হরফ ও হরকত সহজভাবে উপস্থাপন করা হয়েছে।</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎯</div>
+                    <h3>সঠিক মাখরাজ</h3>
+                    <p>উচ্চারণের নিয়মগুলো ছবি ও সহজ নির্দেশনার মাধ্যমে স্পষ্ট করা হয়েছে।</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon">🎨</div>
+                    <h3>রঙিন ও আকর্ষণীয়</h3>
+                    <p>উন্নত মানের চার রঙের চমৎকার প্রিন্টিং যা শিশুদের পড়তে উদ্বুদ্ধ করবে।</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- অর্ডার সেকশন (গুগল শিট ও হোয়াটসঅ্যাপ অটো-কানেক্টেড ফর্ম) -->
+  <!-- অর্ডার সেকশন (গুগল শিট ও হোয়াটসঅ্যাপ অটো-কানেক্টেড ফর্ম) -->
+<section id="order-section" class="order-section">
+    <div class="container">
+        <div class="order-wrapper">
+            <h2>আজই আপনার সন্তানের জন্য কপিটি সংগ্রহ করুন</h2>
+            <p>নিচের ফর্মে সঠিক তথ্য দিয়ে অর্ডার কনফার্ম করুন। আমাদের প্রতিনিধি দ্রুত যোগাযোগ করবেন।</p>
+            
+            <!-- JS হ্যান্ডলিংয়ের জন্য নির্দিষ্ট ID যুক্ত ফর্ম -->
+            <form class="order-form" id="madrashaOrderForm">
+                <div class="form-group">
+                    <label for="custName">আপনার নাম:</label>
+                    <input type="text" id="custName" placeholder="এখানে নাম লিখুন" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="custPhone">মোবাইল নম্বর:</label>
+                    <input type="tel" id="custPhone" placeholder="এখানে মোবাইল নম্বর লিখুন" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="custAddress">পূর্ণ ঠিকানা:</label>
+                    <textarea id="custAddress" rows="3" placeholder="গ্রাম/রোড, থানা, জেলা লিখুন" required></textarea>
+                </div>
+                
+                <!-- ড্রপডাউনের পরিবর্তে নম্বর ইনপুট (১ থেকে ওপরে) -->
+                <div class="form-group">
+                    <label for="orderQty">বইয়ের সংখ্যা (Quantity):</label>
+                    <input type="number" id="orderQty" value="1" min="1" oninput="if(this.value < 1) this.value = 1;" required>
+                </div>
+                
+                <!-- হাইলাইটেড সাবমিট বাটন -->
+                <button type="submit" class="btn btn-highlight btn-submit">অর্ডার নিশ্চিত করুন</button>
+            </form>
+        </div>
+    </div>
+</section>
+
+
+    <!-- ফুটার সেকশন -->
+    <footer class="footer">
+        <p>&copy; ২০২৬ মাদরাসা পাবলিকেশন। সর্বস্বত্ব সংরক্ষিত।</p>
+    </footer>
+
+    <!-- ফিক্সড পজিশন চ্যাট বাটন (Fixed WhatsApp Chat Button) -->
+    <a href="#" 
+       class="fixed-whatsapp-chat" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       title="আমাদের সাথে হোয়াটসঅ্যাপে চ্যাট করুন">
+        <!-- সাইজ কন্ট্রোল করা কাস্টম SVG হোয়াটসঅ্যাপ আইকন -->
+        <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+            <path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+        </svg>
+        <span>চ্যাট করুন</span>
+    </a>
+
+
+
+
+
+<script>
+// পেজটি ব্রাউজারে সম্পূর্ণ লোড হওয়ার পর ভেতরের কোডগুলো সচল হবে
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // ==========================================================================
+    // ১. গ্লোবাল কনফিগুরেশন (এখানে আপনার সঠিক তথ্য বসাবেন)
+    // ==========================================================================
+    const googleSheetURL = "https://script.google.com/macros/s/AKfycbwVHSRejR80fCcqhclaWRMMSh-JwmBaYatcd-HPh5G6tBeGe7-wj0d0cHpYrvQWsNwf/exec"; // আপনার গুগল ওয়েব অ্যাপ লিঙ্ক
+    const myWhatsAppNumber = "888801640875938"; // কান্ট্রি কোডসহ আপনার আসল হোয়াটসঅ্যাপ নম্বর (কোনো + বা - ছাড়া)
+    const bookPricePerUnit = 80; // প্রতি পিস বইয়ের মূল্য (টাকায়)
+
+    // ==========================================================================
+    // ২. ফিক্সড হোয়াটসঅ্যাপ চ্যাট বাটনের লিংক ডাইনামিক করার পার্ট
+    // ==========================================================================
+    // HTML-এর class ধরে ফিক্সড চ্যাট বাটনটিকে জাভাস্ক্রিপ্টে সিলেক্ট করা হলো
+
+    const fixedChatBtn = document.querySelector('.fixed-whatsapp-chat');
+
+    if (fixedChatBtn) {
+    const chatMessage = "আসসালামু-আলাইকুম, নূরানী কায়দা বইটি সম্পর্কে জানতে চাই।";
+
+    // fixedChatBtn.href = "https://wa.me/" + myWhatsAppNumber + "?text=" + encodeURIComponent(chatMessage);
+
+    fixedChatBtn.href = `https://wa.me/${myWhatsAppNumber}?text=${encodeURIComponent(chatMessage)}`;
+    }
+
+
+
+
+
+    // ==========================================================================
+    // ৩. অর্ডার ফর্ম সাবমিশন পার্ট (গুগল শিট কানেকশন)
+    // ==========================================================================
+    document.getElementById('madrashaOrderForm').addEventListener('submit', async (e) => {
+        e.preventDefault(); // ফর্ম সাবমিটের পর পেজটি যেন রিফ্রেশ না হয়, সেজন্য এটি ব্যবহার করা হয়েছে
+
+        // ইনপুট বক্সের আইডি (ID) ধরে কাস্টমারের লেখা তথ্যগুলো সংগ্রহ করা হচ্ছে
+        const name = document.getElementById('custName').value;
+        const phone = document.getElementById('custPhone').value;
+        const address = document.getElementById('custAddress').value;
+        const qty = parseInt(document.getElementById('orderQty').value, 10); // বইয়ের সংখ্যাকে সংখ্যায় (Integer) রূপান্তর
+        
+        // লাইভ বাংলা তারিখ, সময় এবং মোট মূল্যের হিসাব তৈরি করা হচ্ছে
+        const currentDate = `${new Date().toLocaleDateString('bn-BD')} ${new Date().toLocaleTimeString('bn-BD')}`;
+        const totalAmount = `${qty * bookPricePerUnit} টাকা`;
+        const orderStatus = "Pending"; // ডিফল্ট অবস্থা পেন্ডিং থাকবে
+
+        // গুগল শিটের কলাম অনুযায়ী পাঠানোর জন্য একটি আধুনিক ডাটা অবজেক্ট তৈরি
+        const formData = {
+            date: currentDate,
+            name: name,
+            phone: phone,
+            address: address,
+            qty: `${qty} টি`,
+            status: orderStatus,
+            amount: totalAmount
+        };
+
+        // সাবমিট বাটনের টেক্সট পরিবর্তন করে লোডিং স্টেট দেখানো (যাতে ইউজার বারবার ক্লিক না করে)
+        const submitBtn = document.querySelector('.btn-submit');
+        const originalBtnText = submitBtn.innerText;
+        submitBtn.innerText = "অর্ডার প্রসেস হচ্ছে...";
+        submitBtn.disabled = true; // বাটনটি সাময়িকভাবে লক করা হলো
+
+        try {
+            // async/await এবং fetch API ব্যবহার করে ব্যাকগ্রাউন্ডে গুগল শিটে ডাটা পুশ করা হচ্ছে
+            await fetch(googleSheetURL, {
+                method: 'POST', // ডাটা সেভ করার জন্য POST মেথড
+                mode: 'no-cors', // ব্রাউজারের ক্রস-অরিজিন পলিসির এরর এড়ানোর জন্য নিরাপদ মোড
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData) // জাভাস্ক্রিপ্ট অবজেক্টকে টেক্সট ফরম্যাটে রূপান্তর
+            });
+
+            // সফলভাবে গুগল শিটে ডাটা জমা হওয়ার পর আপনার কাঙ্ক্ষিত পপ-আপ মেসেজ
+            alert("আপনার অর্ডারটি গ্রহণ করা হয়েছে। প্রতিনিধিরা আপনার সাথে দ্রুতই যোগাযোগ করবে।");
+            
+            // ফর্মটি খালি (Reset) করে দেওয়া হচ্ছে
+            document.getElementById('madrashaOrderForm').reset();
+            document.getElementById('orderQty').value = "1"; // ডিফল্ট মান আবার ১ সেট করা হলো
+
+        } catch (error) {
+            console.error("Submission error:", error);
+            alert("দুঃখিত, নেটওয়ার্ক সমস্যার কারণে অর্ডারটি নেওয়া যায়নি। আবার চেষ্টা করুন।");
+        } finally {
+            // সমস্ত প্রসেস শেষ হওয়ার পর বাটনকে আবার আগের স্বাভাবিক অবস্থায় ফিরিয়ে আনা হলো
+            submitBtn.innerText = originalBtnText;
+            submitBtn.disabled = false; // বাটনটি আনলক করা হলো
+        }
+    });
+});
+</script>
+</body>
+</html>
